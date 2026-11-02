@@ -1,0 +1,12 @@
+services:
+  helpdesk:
+    build: .
+    container_name: it-helpdesk
+    ports:
+      - "5000:5000"
+    volumes:
+      - helpdesk_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  helpdesk_data:

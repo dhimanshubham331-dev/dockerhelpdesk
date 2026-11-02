@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IT Helpdesk Management</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>IT Helpdesk Management System</h1>
+    <p>Employee Technical Support Portal</p>
+
+    <h2>Submit New Ticket</h2>
+
+    <form action="/create" method="POST">
+
+        <input type="text" name="employee"
+        placeholder="Employee Name" required>
+
+        <input type="text" name="issue"
+        placeholder="Issue Title" required>
+
+        <textarea name="description"
+        placeholder="Describe your problem"
+        required></textarea>
+
+        <button type="submit">Submit Ticket</button>
+
+    </form>
+
+    <h2>Support Tickets</h2>
+
+    {% for ticket in tickets %}
+
+    <div class="ticket">
+
+        <h3>Ticket #{{ ticket.id }} - {{ ticket.issue }}</h3>
+
+        <p>Employee: {{ ticket.employee }}</p>
+
+        <p>Description: {{ ticket.description }}</p>
+
+        <p>Status: <b>{{ ticket.status }}</b></p>
+
+        <form action="/update/{{ ticket.id }}" method="POST">
+
+            <select name="status">
+                <option>Pending</option>
+                <option>In Progress</option>
+                <option>Resolved</option>
+            </select>
+
+            <button type="submit">Update Status</button>
+
+        </form>
+
+    </div>
+
+    {% else %}
+
+    <p>No tickets submitted yet.</p>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    padding: 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    color: #1e3a8a;
+}
+
+form, .ticket {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+input, textarea, select {
+    width: 95%;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ticket {
+    border-left: 5px solid #2563eb;
+}
